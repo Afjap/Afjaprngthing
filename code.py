@@ -69,10 +69,10 @@ def secondstodhms(time):
 data = discord["storage"]["user"]
 servdata = discord["storage"]["server"]
 
-userrarest = data.get("rarestball, "1,Ball")
-userdiscovered = data.get("discovered", "Ball")
-servrarest = servdata.get("rarestball", "1,Ball")
-servdiscovered = servdata.get("discovered", "Ball")
+userrarest = data.get("rarestball, "1,Afjap")
+userdiscovered = data.get("discovered", "Afjap")
+servrarest = servdata.get("rarestball", "1,Afjap")
+servdiscovered = servdata.get("discovered", "Afjap")
 # because of nsb saving i do it this way, fuck you nsb
 userrarest=userrarest.split(",")
 servrarest=servrarest.split(",")
