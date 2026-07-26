@@ -374,7 +374,7 @@ if arg:
         elif ho: timetext+=f"{ho}h{mi}m{se}s"
         elif mi: timetext+=f"{mi}m{se}s"
         else: timetext+=f"{se}s"
-        print(f"Total rolls: {usertime*3} ({timetext})")
+        print(f"Total rolls: {usertime*5} ({timetext})")
         attamt=len(userdiscovered)
         print(f"Discovered attributes: {attamt}/{len(attributes)}")
         rarestatt=(1, "Ball")
@@ -442,7 +442,7 @@ if ttime > 43200:
     remain = ttime-43200
     ttime = 43200
     
-rolls = ttime*3
+rolls = ttime*5
 
 b=[]
 attsfound = set({})
