@@ -11,7 +11,6 @@ else:
     arg=None
 attributes={
 "Ball": 1,
-"Nothing": 1,
 "Common": 2,
 "Uncommon": 4,
 "Good": 5,
@@ -41,7 +40,7 @@ attributes={
 "Magnetic": 2048,
 "Ash": 2300,
 "Glacier": 2304,
-"PLAYER": 3000,
+"Player": 3000,
 "Flora": 3700,
 "Cola": 3999,
 "Sidereum": 4096,
@@ -113,7 +112,7 @@ attributes={
 "Cosmos": 1520000,
 "Obsidian": 1750000,
 "Archmage": 1766000,
-"Respawn": 1999999,
+"Player:Respawn": 1999999,
 "Gravitational": 2000000,
 "UNBOUND": 2000000,
 "Buggify": 2000000,
