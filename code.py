@@ -1,5 +1,5 @@
-# sols rng for all
-ROLLRATE = 3
+# hi code lurker
+
 import random
 import math
 import os
@@ -276,8 +276,19 @@ attributes={
 "Equinox": 2500000000,
 "Monarch": 3000000000,
     
-    
 }
+
+sfxlinks=[
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888359835631616/1sp.mp4?ex=6a639310&is=6a624190&hm=15740976cabe5cc3034eb49ce0a24607d651087d46ab0618d29be398644e97ce&", 1000000000000000000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888360095547453/1sx.mp4?ex=6a639310&is=6a624190&hm=e768ef2a2869e907735abab49cf43aba96957fee337a5a4a869e454296c87f9e&", 1000000000000000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888359508348988/1qn.mp4?ex=6a639310&is=6a624190&hm=866fa3a35bc8a91cb2699426cca2e24c94326eec5507882e4e6a9e7ae6ca39e8&", 1000000000000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888359248560169/1qd.mp4?ex=6a639310&is=6a624190&hm=482f7a7da887408549914fa4e3a6a3a300767a017b97f817e8155cd418e832e8&", 1000000000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888360301072574/1t.mp4?ex=6a639311&is=6a624191&hm=9f770d523b4191e9003df34bf778b17135e803b3cc8dddbba3340af022e87134&", 1000000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888358841716957/1b.mp4?ex=6a639310&is=6a624190&hm=8f12bd178cba2def4717240927983d88b7df720051d094a8fc4cfd748a3efe16&", 1000000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888359026135102/1m.mp4?ex=6a639310&is=6a624190&hm=4ee674432ff0dc3a0557bab099457ec2a7885a02db71b0fb3aba8d6e0dbc2544&", 1000000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888360603189459/100k.mp4?ex=6a639311&is=6a624191&hm=4492ac35ec4e712833ad303890d0e2ad081ec56ebc4be151ac83dd619f343bdc&", 100000),
+(r"https://cdn.discordapp.com/attachments/1516038860474159227/1529888358656901210/1.mp4?ex=6a639310&is=6a624190&hm=17ecbf22c741111038783d6491b439e0892159112f41b6058f66c4c6d22f4b20&", 1)
+]
 
 def attkey(n):
     return attributes[n]
@@ -341,7 +352,7 @@ if arg:
         print("Tag by: Afjap\nThank's to Sol's RNG for the auras, inspired by the attrng tag by BonesYT.\nAn idle game where you roll for balls, which may have various attributes from Sol's RNG, from really common ones to extremely rare ones.\nNot much else to say.")
         exit()
     elif arg=="help":
-        print("Usable arguments:\n`.t (tag) get` - prints user+server data. if you want to look at it then sure, but its mostly for debug purposes.\n`.t (tag) about` - info about the game\n`.t (tag) help` - <:g_:1501846104797352038>\n`.t (tag) stats` - shows your current stats and server stats.\n`.t (tag) [serv]attributes` - shows your (or entire server discovered if servattributes) discovered attributes.\n`.t (tag) showatt (attribute)` - shows the rarity of an attribute")
+        print("Usable arguments:\n`.t (tag) get` - prints user+server data. if you want to look at it then sure, but its mostly for debug purposes.\n`.t (tag) about` - info about the game\n`.t (tag) help` - <:g_:1501846104797352038>\n`.t (tag) stats` - shows your current stats and server stats.\n`.t (tag) [serv]attributes` - shows your (or entire server discovered if servattributes) discovered attributes.\n`.t (tag) showatt (attribute)` - shows the rarity of an attribute\n`.t (tag) topatts` - shows top 5 your and top 5 server discovered attributes")
         exit()
     elif arg=="stats":
         print("## User stats:")
@@ -363,7 +374,7 @@ if arg:
         elif ho: timetext+=f"{ho}h{mi}m{se}s"
         elif mi: timetext+=f"{mi}m{se}s"
         else: timetext+=f"{se}s"
-        print(f"Total rolls: {usertime*ROLLRATE} ({timetext})")
+        print(f"Total rolls: {usertime*3} ({timetext})")
         attamt=len(userdiscovered)
         print(f"Discovered attributes: {attamt}/{len(attributes)}")
         rarestatt=(1, "Ball")
@@ -411,14 +422,16 @@ if arg:
             exit()
         else:
             print("No attribute provided.")
-    elif arg=="set":
-        if len(args)>2:
-            discord["storage"]["user"][args[1]] = args[2]
-            print(discord["storage"]["user"][args[1]])
-            exit()
-        else:
-            print("nothin?")
-            exit()
+    elif arg=="topatts":
+        attsort=sorted(userdiscovered, key=attkey, reverse=True)
+        print("### Your top 5 discovered attributes:")
+        for yy in range(5):
+            print(f"{yy}. {attsort[yy]} (1/" + "{:,})".format(attributes[attsort[yy]]))
+        attsort=sorted(servdiscovered, key=attkey, reverse=True)
+        print("### Server top 5 discovered attributes:")
+        for yy in range(5):
+            print(f"{yy}. {attsort[yy]} (1/" + "{:,})".format(attributes[attsort[yy]]))
+        exit()
     print("Invalid argument.")
     exit()
     
@@ -429,7 +442,7 @@ if ttime > 43200:
     remain = ttime-43200
     ttime = 43200
     
-rolls = ttime*ROLLRATE
+rolls = ttime*3
 
 b=[]
 attsfound = set({})
@@ -468,11 +481,20 @@ elif ho: timetext+=f"{ho}h{mi}m{se}s"
 elif mi: timetext+=f"{mi}m{se}s"
 else: timetext+=f"{se}s"
 print(f"You were away for {timetext} and you rolled {rolls} times. Showing top 10 finds:")
+sfxth="(https://cdn.discordapp.com/attachments/1516038860474159227/1529888358656901210/1.mp4?ex=6a639310&is=6a624190&hm=17ecbf22c741111038783d6491b439e0892159112f41b6058f66c4c6d22f4b20&)"
+for bg in sfxlinks:
+    if top1[0] > bg[1]:
+        sfxth=f"({bg[0]})"
+        break
+        
 for i,ii in enumerate(top10):
     bt=""
     for g in ii[1:]:
         bt+=f"{g} "
-    print(f"{i+1}. {bt}(1/"+"{:,})".format(int(ii[0]))) 
+    if i == 0:
+        print(f"[{i+1}]{sfxth}. {bt}(1/"+"{:,})".format(int(ii[0]))) 
+    else:
+        print(f"{i+1}. {bt}(1/"+"{:,})".format(int(ii[0]))) 
 print("Showing top 3 rarest attribute finds:")
 for i,ii in enumerate(top3att):
     if ii == "DIVORCED!!!!":
@@ -483,8 +505,16 @@ if issrar: print("# *NEW SERVER BEST!*")
 elif isurar: print("## NEW USER BEST!")
 if discv:
     print(f"You discovered {discv} new attributes!")
+    
 if remain:
-    print(f"Rolls per command are capped to 12h of afk, use this tag repeatedly to roll the remaining {remain*ROLLRATE} ")
+    da,ho,mi,se=secondstodhms(remain)
+    timetext=""
+    if da: timetext+=f"{da}d{ho}h{mi}m{se}s"
+    elif ho: timetext+=f"{ho}h{mi}m{se}s"
+    elif mi: timetext+=f"{mi}m{se}s"
+    else: timetext+=f"{se}s"
+    print(f"You were away for {timetext} and you rolled {rolls} times. Showing top 10 finds:")
+    print(f"## Rolls per command are capped to 12h of afk, _use this tag again_ to roll the remaining {remain*3} ({timetext}) rolls")
 
 
 rball = ""
