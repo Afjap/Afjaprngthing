@@ -1,5 +1,5 @@
-# hi code lurker
-
+# sols rng for all
+ROLLRATE = 3
 import random
 import math
 import os
@@ -10,36 +10,273 @@ if args:
 else:
     arg=None
 attributes={
-"Afjap": 1,
-"Afjep": 3,
-"Afjop": 10,
-"Afjup": 20,
-"Afjip": 40,  
-"Ajpaf": 75, 
-"Fajap": 100,
-"Ifjap": 250,
-"Weirdjap": 500,
-"Afja": 1000,
-"Afja]": 2500,
-"Ajap": 5000,
-"Qwzertz": 9999,
-"Afpaj": 10000,
-"Larpjap": 25000,
-"Aflarp": 50000,
-"Apjaf": 100000,
-"Afjapite": 250000,
-"Qwzertzium": 500000,
-"AfjapAfjap": 999999,
-"Afj": 1000000,
-"Jafpa": 1500000,
-"pajfA": 2500000,
-"AfjapCRYSTAL": 5555555,
-"Arjap": 8888888,
-"jap": 12345678,
-"Hjoim": 21375890
-"Asdas": 56719210
-"Afjapple": 78924301
-"The Afjap": 100000000
+"Ball": 1,
+"Nothing": 1,
+"Common": 2,
+"Uncommon": 4,
+"Good": 5,
+"Natural": 8,
+"Rare": 16,
+"Divinus": 32,
+"Crystallized": 64,
+"Dizzy": 123,
+"Rage": 128,
+"Topaz": 150,
+"Ruby": 350,
+"Forbidden": 403,
+"Emerald": 500,
+"Gilded": 512,
+"Ink": 700,
+"Jackpot": 777,
+"Sapphire": 800,
+"Aquamarine": 900,
+"Wind": 900,
+"Diaboli": 1004,
+"Penumbra": 1010,
+"Umbra": 1010,
+"Precious": 1024,
+"Hydrogen": 1111,
+"Atomic": 1180,
+"Glock": 1700,
+"Magnetic": 2048,
+"Ash": 2300,
+"Glacier": 2304,
+"PLAYER": 3000,
+"Flora": 3700,
+"Cola": 3999,
+"Sidereum": 4096,
+"Bleeding": 4444,
+"Flutter": 5000,
+"TARGETED": 5000,
+"Flushed": 6900,
+"HAZARD": 7000,
+"Doodle": 7500,
+"Quartz": 8192,
+"Honey": 8335,
+"Lost Soul": 9200,
+"Atomic: Ribonucleic": 9876,
+"★": 10000,
+"Undead": 12000,
+"Corrosive": 12000,
+"Kawaii": 12300,
+"Rage:Heated": 12800,
+"Ink:LEAK": 14000,
+"Powered": 16384,
+"Crowned": 20000,
+"Marsh": 25000,
+"COPPER": 29000,
+"WATT": 32768,
+"Aquatic": 40000,
+"Solar": 50000,
+"Lunar": 50000,
+"STARLIGHT": 50000,
+"Star Rider": 50000,
+"Pleiades": 65358,
+"Flushed:Lobotomy": 69000,
+"HAZARD:RAYS": 70000,
+"Nautilus": 70000,
+"Permafrost": 73500,
+"Pulsar": 83345,
+"Constella": 86988,
+"Flow": 87000,
+"Stormal": 90000,
+"FAULT": 90000,
+"Exotic": 99999,
+"★★": 100000,
+"Eclipse": 100032,
+"DIABOLI : VOID": 100400,
+"COMET": 120000,
+"Divinus : Angel": 120000,
+"Jade": 125000,
+"Spectre": 140000,
+"Jazz": 160000,
+"Aether": 180000,
+"BOUNDED": 200000,
+"Lantern": 333333,
+"Celestial": 350000,
+"Vortex": 399999,
+"TERROR": 400000,
+"HOPE": 488725,
+"Raven": 500000,
+"Warlock": 666000,
+"UNDEAD : DEVIL": 666666,
+"Kyawthuite": 850000,
+"★★★": 1000000,
+"Arcane": 1000000,
+"STARLIGHT:KUNZITE": 1000000,
+"ゴシック": 1000001,
+"Magnetic : Reverse Polarity": 1024000,
+"Undefined": 1111000,
+"Rage:Brawler": 1280000,
+"symbiosis": 1331201,
+"Astral": 1336000,
+"Cosmos": 1520000,
+"Obsidian": 1750000,
+"Archmage": 1766000,
+"Respawn": 1999999,
+"Gravitational": 2000000,
+"UNBOUND": 2000000,
+"Buggify": 2000000,
+"FLOWED": 2121121,
+"Virtual": 2500000,
+"Vega": 2580000,
+"PARASITE": 3000000,
+"Orion": 3000000,
+"Apatite": 3133133,
+"Savior": 3200000,
+"Shiftlock": 3325000,
+"Evanescent": 3360000,
+"Cosmos:Alice": 3500000,
+"Bejeweled": 3600000,
+"Aquatic:Flame": 4000000,
+"Poseidon": 4000000,
+"METABYTES": 4000000,
+"WRAITH": 4100000,
+"Zeus": 4500000,
+"Solar:Solstice": 5000000,
+"Galaxy": 5000000,
+"Lunar:Full Moon": 5000000,
+"Anima": 5730000,
+"Twilight": 6000000,
+"ASTRONAUT": 6117186,
+"Origin": 6500000,
+"HADES": 6666666,
+"CELESTIAL✰DIVINE": 7000000,
+"Anubis": 7200000,
+"Refraction": 7242000,
+"Faith": 7250000,
+"Hyper-Volt": 7500000,
+"VELOCITY": 7630000,
+"Nautilus:Lost": 7700000,
+"Divinus:Guardian": 7777777,
+"OUTLAW": 8000000,
+"SPECTRE:REQUIEM": 8222000,
+"Soultorn": 8333333,
+"HARNESSED": 8500000,
+"Nihility": 9000000,
+"Helios": 9000000,
+"Stargazer": 9200000,
+"Jade//Purity": 9250000,
+"Amethyst": 9333700,
+"Starscourge": 10000000,
+"Sharkyn": 10000000,
+"Guardian": 10000000,
+"Empty": 11111111,
+"Melodic": 11300000,
+"Sailor": 12000000,
+"Graffiti": 12000000,
+"Glitch": 12110110,
+"Imaginary": 12200200,
+"Borealis": 13333333,
+"Stormal:Hurricane": 13500000,
+"CellAstroides": 13770000,
+"Sirius": 14000000,
+"Arcane:Legacy": 15000000,
+"Icarus": 15660000,
+"Lullaby": 17000000,
+"Chromatic": 20000000,
+"Plasma": 20600000,
+"Oculus": 23233340,
+"Aviator": 24000000,
+"Ruby:Brimstone": 24060000,
+"Apotheosis": 24691356,
+"Centurion": 25000000,
+"Blizzard": 27315000,
+"Arcane:Dark": 30000000,
+"Flora:Florest": 32800000,
+"Ethereal": 35000000,
+"Virtual:Fatal Error": 40413000,
+"Juxtaposition": 40440400,
+"Overseer": 45000000,
+"Exotic:Apex": 49999500,
+"Matrix": 50000000,
+"Runic": 50000000,
+"Sentinel": 60000000,
+"Twilight:IridescentMemory": 60000000,
+"Antivirus": 62500000,
+"Chromatic-HYPER": 68982670,
+"Dominion": 70000000,
+"Starborn": 72000000,
+"Melodic:Serenade": 77000000,
+"Sailor:Flying Dutchman": 80000000,
+"Carriage": 80000000,
+"Aquaria": 80000000,
+"Virtual:Full Control": 80000000,
+"Meta": 81111111,
+"Harnessed:Elements": 85000000,
+"Hellbound": 85000000,
+"Runic:Wilt": 87388744,
+"Virtual:WorldWide": 87500000,
+"Atomic:Nucleus": 92118000,
+"Quartz:Rose": 97500000,
+"Chromatic : Genesis": 99999999,
+"Starscourge : Radiant": 100000000,
+"Spectraflow": 100000000,
+"Lily": 112000000,
+"Sharkyn:HammerHead": 120000000,
+"Overture": 150000000,
+"Bounded:Aichmalotos": 170000000,
+"Symphony": 175000000,
+"Twilight:WitheringGrace": 180000000,
+"Felled": 180000000,
+"Projection": 197000000,
+"Impeached": 200000000,
+"Raven:Plague": 200000000,
+"Lumenpool": 220000000,
+"Hyper-Volt:EverStorm": 225000000,
+"VirtualMemory": 232232232,
+"Astral:Zodiac": 267200000,
+"Prophecy": 275649430,
+"Exotic:Void": 299999999,
+"Overture:History": 300000000,
+"Bloodlust": 300000000,
+"Maelstrom": 309999999,
+"Dreamer": 315000000,
+"Perpetual": 315000000,
+"Lotusfall": 320000000,
+"Cytokinesis": 330400472,
+"Jazz:Orchestra": 336870912,
+"Archangel": 350000000,
+"Atlas": 360000000,
+"Flora:Evergreen": 370073730,
+"Chillsear": 375000000,
+"Celestial:Eclipse": 384400000,
+"Abyssal Hunter": 400000000,
+"Gargantua": 430000000,
+"Apostolos": 444000000,
+"Unknown": 444444444,
+"Kyawthuite:Remembrance": 450000000,
+"Ruins": 500000000,
+"Matrix:Overdrive": 503000000,
+"Gravitational:Point-Zero": 521121900,
+"A.T.L.A.S": 536870915,
+"Sailor:Admiral": 540000000,
+"Elude": 555555555,
+"Sophyra": 570000000,
+"Matrix:Reality": 601020102,
+"Sloth": 650000000,
+"Prologue": 666616111,
+"Pythios": 666666666,
+"Sovereign": 750000000,
+"Ruins:Withered": 800000000,
+"Aegis": 825000000,
+"Eisveil": 830000000,
+"Dreamscape": 850000000,
+"Poseidon:Atlantis": 850000000,
+"Ascendant": 935000000,
+"Illusionary": 1000000000,
+"Nyctophobia": 1011111010,
+"Pixelation": 1073741824,
+"Luminosity": 1200000000,
+"AbyssalHunter:AWAKENED": 1638000000,
+"Leviathan": 1730400000,
+"Astraios": 1750000000,
+"Matrix:Steampunk: 1841004000,
+"Breakthrough": 1999999999,
+"Dream Catcher": 2222222222,
+"Equinox": 2500000000,
+"Monarch": 3000000000,
+    
     
 }
 
@@ -69,10 +306,10 @@ def secondstodhms(time):
 data = discord["storage"]["user"]
 servdata = discord["storage"]["server"]
 
-userrarest = data.get("rarestball, "1,Afjap")
-userdiscovered = data.get("discovered", "Afjap")
-servrarest = servdata.get("rarestball", "1,Afjap")
-servdiscovered = servdata.get("discovered", "Afjap")
+userrarest = data.get("rarestball", "1,Ball")
+userdiscovered = data.get("discovered", "Ball")
+servrarest = servdata.get("rarestball", "1,Ball")
+servdiscovered = servdata.get("discovered", "Ball")
 # because of nsb saving i do it this way, fuck you nsb
 userrarest=userrarest.split(",")
 servrarest=servrarest.split(",")
@@ -102,7 +339,7 @@ if arg:
         print(servdata)
         exit()
     elif arg=="about":
-        print("Tag by: sd\\_.n\\_ - the code | afjap - ALOT of attributes\nBased on balls.rng on roblox, inspired by the attrng tag by BonesYT.\nAn idle game where you roll for balls, which may have various attributes, from really common ones to extraordinarily rare ones.\nNot much else to say.")
+        print("Tag by: Afjap\nThank's to Sol's RNG for the auras, inspired by the attrng tag by BonesYT.\nAn idle game where you roll for balls, which may have various attributes from Sol's RNG, from really common ones to extremely rare ones.\nNot much else to say.")
         exit()
     elif arg=="help":
         print("Usable arguments:\n`.t (tag) get` - prints user+server data. if you want to look at it then sure, but its mostly for debug purposes.\n`.t (tag) about` - info about the game\n`.t (tag) help` - <:g_:1501846104797352038>\n`.t (tag) stats` - shows your current stats and server stats.\n`.t (tag) [serv]attributes` - shows your (or entire server discovered if servattributes) discovered attributes.\n`.t (tag) showatt (attribute)` - shows the rarity of an attribute")
@@ -127,7 +364,7 @@ if arg:
         elif ho: timetext+=f"{ho}h{mi}m{se}s"
         elif mi: timetext+=f"{mi}m{se}s"
         else: timetext+=f"{se}s"
-        print(f"Total rolls: {usertime} ({timetext})")
+        print(f"Total rolls: {usertime*ROLLRATE} ({timetext})")
         attamt=len(userdiscovered)
         print(f"Discovered attributes: {attamt}/{len(attributes)}")
         rarestatt=(1, "Ball")
@@ -175,16 +412,25 @@ if arg:
             exit()
         else:
             print("No attribute provided.")
-    
+    elif arg=="set":
+        if len(args)>2:
+            discord["storage"]["user"][args[1]] = args[2]
+            print(discord["storage"]["user"][args[1]])
+            exit()
+        else:
+            print("nothin?")
+            exit()
     print("Invalid argument.")
     exit()
     
 ttime = round(time.time()-userlast)
-rolls = round(time.time()-userlast)
+
 remain = 0
-if rolls > 86400:
-    remain = rolls-86400
-    rolls = 86400
+if ttime > 43200:
+    remain = ttime-43200
+    ttime = 43200
+    
+rolls = ttime*ROLLRATE
 
 b=[]
 attsfound = set({})
@@ -216,7 +462,7 @@ if top1[0] > servrarest[0]:
     issrar=True
     servrarest=top1
 #
-da,ho,mi,se=secondstodhms(rolls)
+da,ho,mi,se=secondstodhms(ttime)
 timetext=""
 if da: timetext+=f"{da}d{ho}h{mi}m{se}s"
 elif ho: timetext+=f"{ho}h{mi}m{se}s"
@@ -239,7 +485,7 @@ elif isurar: print("## NEW USER BEST!")
 if discv:
     print(f"You discovered {discv} new attributes!")
 if remain:
-    print(f"Rolls per command are capped to 1 day of afk (86400 rolls), use this tag repeatedly to roll the remaining {remain} times.")
+    print(f"Rolls per command are capped to 12h of afk, use this tag repeatedly to roll the remaining {remain*ROLLRATE} ")
 
 
 rball = ""
@@ -258,7 +504,7 @@ print(f"-# Use `.t (tag) help` for the argument list.")
 discord["storage"]["user"]["rarestball"] = userrarest
 discord["storage"]["user"]["last"] = time.time()-remain
 discord["storage"]["user"]["discovered"] = userdiscovered
-discord["storage"]["user"]["time"] = usertime+rolls
+discord["storage"]["user"]["time"] = usertime+ttime
 # server data
 discord["storage"]["server"]["rarestball"] = servrarest
 discord["storage"]["server"]["discovered"] = servdiscovered
