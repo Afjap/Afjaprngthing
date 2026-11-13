@@ -10,7 +10,7 @@ if args:
 else:
     arg=None
 attributes={}
-for i in range(10000):
+for i in range(1000):
     attributes[str(i+1)]=i+1
 
 sfxlinks=[
