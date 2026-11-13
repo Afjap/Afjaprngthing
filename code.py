@@ -45,11 +45,14 @@ attributes={
 "Cola": 3999,
 "Sidereum": 4096,
 "Bleeding": 4444,
+"Hellfire": 4776,
 "Flutter": 5000,
 "Targeted": 5000,
+"Watcher": 5000,
 "Flushed": 6900,
 "Hazard": 7000,
 "Doodle": 7500,
+"Rekindle": 7500,
 "Quartz": 8192,
 "Honey": 8335,
 "Lost Soul": 9200,
@@ -86,6 +89,7 @@ attributes={
 "DIABOLI : VOID": 100400,
 "COMET": 120000,
 "Divinus : Angel": 120000,
+"CONTENTDELETED": 120120,
 "Jade": 125000,
 "Spectre": 140000,
 "Jazz": 160000,
@@ -97,6 +101,8 @@ attributes={
 "TERROR": 400000,
 "HOPE": 488725,
 "Raven": 500000,
+"Artifact": 500000,
+"Veylune": 550000,
 "Warlock": 666000,
 "UNDEAD : DEVIL": 666666,
 "Kyawthuite": 850000,
@@ -135,6 +141,7 @@ attributes={
 "Solar:Solstice": 5000000,
 "Galaxy": 5000000,
 "Lunar:Full Moon": 5000000,
+"MOONCHILD": 5000000,
 "Anima": 5730000,
 "Twilight": 6000000,
 "ASTRONAUT": 6117186,
@@ -150,6 +157,7 @@ attributes={
 "Divinus:Guardian": 7777777,
 "OUTLAW": 8000000,
 "SPECTRE:REQUIEM": 8222000,
+"Nightshade": 8262026,
 "Soultorn": 8333333,
 "HARNESSED": 8500000,
 "Nihility": 9000000,
@@ -190,6 +198,7 @@ attributes={
 "Exotic:Apex": 49999500,
 "Matrix": 50000000,
 "Runic": 50000000,
+"Cor Lunae": 50000000,
 "Sentinel": 60000000,
 "Twilight:IridescentMemory": 60000000,
 "Antivirus": 62500000,
@@ -200,8 +209,9 @@ attributes={
 "Sailor:Flying Dutchman": 80000000,
 "Carriage": 80000000,
 "Aquaria": 80000000,
-"Virtual:Full Control": 80000000,
+"Virtual//ULTIMATE": 80000000,
 "Meta": 81111111,
+"True Kyawthuite": 82500000,
 "Harnessed:Elements": 85000000,
 "Hellbound": 85000000,
 "Runic:Wilt": 87388744,
@@ -211,12 +221,12 @@ attributes={
 "Chromatic : Genesis": 99999999,
 "Starscourge : Radiant": 100000000,
 "Spectraflow": 100000000,
+"True Jade": 102500000,
 "Lily": 112000000,
 "Sharkyn:HammerHead": 120000000,
 "Overture": 150000000,
 "Bounded:Aichmalotos": 170000000,
 "Symphony": 175000000,
-"Twilight:WitheringGrace": 180000000,
 "Felled": 180000000,
 "Projection": 197000000,
 "Impeached": 200000000,
@@ -241,10 +251,13 @@ attributes={
 "Chillsear": 375000000,
 "Celestial:Eclipse": 384400000,
 "Abyssal Hunter": 400000000,
+"Twilight:WitheringGrace": 422656000,
 "Gargantua": 430000000,
 "Apostolos": 444000000,
 "Unknown": 444444444,
 "Kyawthuite:Remembrance": 450000000,
+"Volcanic": 480000000,
+"Hasuen": 485000000,
 "Ruins": 500000000,
 "Matrix:Overdrive": 503000000,
 "Gravitational:Point-Zero": 521121900,
@@ -252,6 +265,7 @@ attributes={
 "Sailor:Admiral": 540000000,
 "Elude": 555555555,
 "Sophyra": 570000000,
+"True Twilight": 600000000,
 "Matrix:Reality": 601020102,
 "Sloth": 650000000,
 "Prologue": 666616111,
@@ -263,7 +277,6 @@ attributes={
 "Dreamscape": 850000000,
 "Poseidon:Atlantis": 850000000,
 "Ascendant": 935000000,
-"Illusionary": 1000000000,
 "Nyctophobia": 1011111010,
 "Pixelation": 1073741824,
 "Luminosity": 1200000000,
@@ -274,7 +287,12 @@ attributes={
 "Breakthrough": 1999999999,
 "Dream Catcher": 2222222222,
 "Equinox": 2500000000,
+"HELLBORN": 2644600640,
 "Monarch": 3000000000,
+"TreeHouse": 3800000000,
+"Tomorrow": 4743780000,
+"Masterhand": 7500000000,
+"Illusionary": 9999999999,
     
 }
 
@@ -316,10 +334,11 @@ def secondstodhms(time):
 data = discord["storage"]["user"]
 servdata = discord["storage"]["server"]
 
-userrarest = data.get("rarestball", "1,Ball")
-userdiscovered = data.get("discovered", "Ball")
-servrarest = servdata.get("rarestball", "1,Ball")
-servdiscovered = servdata.get("discovered", "Ball")
+userrarest = data.get("rarestball", "1,Ball").replace("[", "").replace("]", "").replace('"', "").replace('\\', "")
+userdiscovered = data.get("discovered", "Ball").replace("[", "").replace("]", "").replace('"', "").replace('\\', "")
+servrarest = servdata.get("rarestball", "1,Ball").replace("[", "").replace("]", "").replace('"', "").replace('\\', "")
+servdiscovered = servdata.get("discovered", "Ball").replace("[", "").replace("]", "").replace('"', "").replace('\\', "")
+
 # because of nsb saving i do it this way, fuck you nsb
 userrarest=userrarest.split(",")
 servrarest=servrarest.split(",")
@@ -349,7 +368,7 @@ if arg:
         print(servdata)
         exit()
     elif arg=="about":
-        print("Tag by: Afjap\nThank's to Sol's RNG for the auras, inspired by the attrng tag by BonesYT.\nAn idle game where you roll for balls, which may have various attributes from Sol's RNG, from really common ones to extremely rare ones.\nNot much else to say.")
+        print("Tag by: sd\\_.n\\_ - the code | afjap - ALOT of attributes\nBased on balls.rng on roblox (sfx also taken from here), inspired by the attrng tag by BonesYT.\nAn idle game where you roll for balls, which may have various attributes, from really common ones to extraordinarily rare ones.\nNot much else to say.")
         exit()
     elif arg=="help":
         print("Usable arguments:\n`.t (tag) get` - prints user+server data. if you want to look at it then sure, but its mostly for debug purposes.\n`.t (tag) about` - info about the game\n`.t (tag) help` - <:g_:1501846104797352038>\n`.t (tag) stats` - shows your current stats and server stats.\n`.t (tag) [serv]attributes` - shows your (or entire server discovered if servattributes) discovered attributes.\n`.t (tag) showatt (attribute)` - shows the rarity of an attribute\n`.t (tag) topatts` - shows top 5 your and top 5 server discovered attributes")
@@ -374,7 +393,7 @@ if arg:
         elif ho: timetext+=f"{ho}h{mi}m{se}s"
         elif mi: timetext+=f"{mi}m{se}s"
         else: timetext+=f"{se}s"
-        print(f"Total rolls: {usertime*5} ({timetext})")
+        print(f"Total rolls: {usertime*3} ({timetext})")
         attamt=len(userdiscovered)
         print(f"Discovered attributes: {attamt}/{len(attributes)}")
         rarestatt=(1, "Ball")
@@ -442,7 +461,7 @@ if ttime > 43200:
     remain = ttime-43200
     ttime = 43200
     
-rolls = ttime*5
+rolls = ttime*3
 
 b=[]
 attsfound = set({})
@@ -513,7 +532,6 @@ if remain:
     elif ho: timetext+=f"{ho}h{mi}m{se}s"
     elif mi: timetext+=f"{mi}m{se}s"
     else: timetext+=f"{se}s"
-    print(f"You were away for {timetext} and you rolled {rolls} times. Showing top 10 finds:")
     print(f"## Rolls per command are capped to 12h of afk, _use this tag again_ to roll the remaining {remain*3} ({timetext}) rolls")
 
 
