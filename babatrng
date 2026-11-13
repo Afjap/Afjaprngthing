@@ -12,7 +12,7 @@ else:
 attributes={
 "Ball": 1,
 "Bangla": 10,
-"Basket" 25,
+"Basket": 25,
 "Tung": 50,
 "ShutUpLa": 77,
 "99": 99,
